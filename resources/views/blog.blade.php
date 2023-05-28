@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
+  
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -92,6 +92,7 @@
               </div>
 
               <div class="entry-content">
+                  <p>{{ $blogpost->summary }}</p>
                   <img src="{{ URL::asset('assets/img/blog/blog.svg')}}" class="img-fluid" alt="">
                   <hr>
                 <p>
@@ -200,7 +201,6 @@
     
 </body>
 </html>
-
 
 {{-- <h1>{{ $blogpost->title }}</h1>
 <p>{{ $blogpost->content }}</p>

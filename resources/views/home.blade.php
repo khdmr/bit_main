@@ -32,6 +32,7 @@
 </head>
 
 <body>
+
     <!-- Header -->
     <header id="header" class="header fixed-top">
         <!-- Navbar Navigation -->
@@ -141,28 +142,24 @@
                         </div>
                     </div>
 
-                    
+                    @foreach ($course as $course)
                     <div class="row g-0">
                         <div class="col-lg-6">
                             <div class="content">
-                                <h3 class="font-weight-bold">Artificial Intelligence</h3>
+                                <h3 class="font-weight-bold">{{ $course->title }}</h3>
                                 <span class="icon-container">
                                     <i class="ri-book-3-line"></i>
-                                    <p class="m-3 font-weight-bold">0 Modul</p>
+                                    <p class="m-3 font-weight-bold">{{ $course->modul()->count() }} Modul</p>
                                     <i class="bi bi-people-fill"></i>
                                     <p class="m-3 font-weight-bold">0 Siswa</p>
                                 </span>
 
                                 <p>
-                                    Quisquam vel ut sint cum eos hic dolores aperiam. Sed deserunt et. Inventore et et
-                                    dolor
-                                    consequatur itaque ut voluptate sed et. Magnam nam ipsum tenetur suscipit voluptatum
-                                    nam
-                                    et est corrupti.
+                                   {{ $course->summary  }}
                                 </p>
                                 <h5 class="font-weight-bold">Rp. 500.000</h5>
                                 <div class="text-lg-start mt-4 d-inline-flex">
-                                    <a href="#" class="btn-lihat-modul">
+                                    <a href="/bootcamp/{{ $course->id }}" class="btn-lihat-modul">
                                         <span>Lihat Modul</span>
 
                                     </a>
@@ -178,6 +175,7 @@
 
                         </div>
                     </div>
+                    @endforeach
 
                 </div>
             </div>
@@ -359,33 +357,17 @@
               </header>
       
               <div class="row">
-      
+
+                @foreach ($blogs as $blog)
                 <div class="col-lg-4">
                   <div class="post-box">
-                    <div class="post-img"><img src="assets/img/blog/blog-1.jpg" class="img-fluid" alt=""></div>
+                    <div class="post-img"><img src="assets/img/blog/blog-{{ $i++ }}.jpg" class="img-fluid" alt=""></div>
                     <span class="post-date">Tue, September 15</span>
-                    <h3 class="post-title">Eum ad dolor et. Autem aut fugiat debitis voluptatem consequuntur sit</h3>
-                    <a href="#" class="readmore stretched-link mt-auto"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
+                    <h3 class="post-title">{{ $blog->title }}</h3>
+                    <a href="/blog/{{ $blog->id }}" class="readmore stretched-link mt-auto"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
                   </div>
                 </div>
-      
-                <div class="col-lg-4">
-                  <div class="post-box">
-                    <div class="post-img"><img src="assets/img/blog/blog-2.jpg" class="img-fluid" alt=""></div>
-                    <span class="post-date">Fri, August 28</span>
-                    <h3 class="post-title">Et repellendus molestiae qui est sed omnis voluptates magnam</h3>
-                    <a href="#" class="readmore stretched-link mt-auto"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
-                  </div>
-                </div>
-      
-                <div class="col-lg-4">
-                  <div class="post-box">
-                    <div class="post-img"><img src="assets/img/blog/blog-3.jpg" class="img-fluid" alt=""></div>
-                    <span class="post-date">Mon, July 11</span>
-                    <h3 class="post-title">Quia assumenda est et veritatis aut quae</h3>
-                    <a href="#" class="readmore stretched-link mt-auto"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
-                  </div>
-                </div>
+                @endforeach  
       
               </div>
       
@@ -462,7 +444,7 @@
           <div class="copyright">
             &copy; Copyright <strong><span>FlexStart</span></strong>. All Rights Reserved
           </div>
-          <div class="credits">
+          <div class="credits">  
             <!-- All the links in the footer should remain intact. -->
             <!-- You can delete the links only if you purchased the pro version. -->
             <!-- Licensing information: https://bootstrapmade.com/license/ -->
@@ -484,6 +466,7 @@
     <!-- File JS -->
     <script src="assets/js/main.js"></script>
     
+
 </body>
 
 </html>
