@@ -15,6 +15,19 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory(10)->create();
         \App\Models\Modul::factory(10)->create();
         \App\Models\CourseCategory::factory(4)->create();
+        // \App\Models\CourseCategory::factory()->create([
+        //     'name_category' => 'Web Developer',
+        // ]);
+        // \App\Models\Course::factory()->create([
+        //     'name_category' => 'Mobile Developer',
+        // ]);
+        // \App\Models\Course::factory()->create([
+        //     'name_category' => 'Machine Learning',
+        // ]);
+        // \App\Models\Course::factory()->create([
+        //     'name_category' => 'Dev-Ops Enginee',
+        // ]);
+
         \App\Models\Course::factory(8)->create();
 
         \App\Models\Course::factory()->create([

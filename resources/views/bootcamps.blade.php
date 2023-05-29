@@ -106,7 +106,7 @@
                             <p>{{ $course->coursecategory->name_category }}</p>
                             <span class="icon-container">
                                 <i class="ri-book-3-line"></i>
-                                <p class="m-3 font-weight-bold">{{ $course->modul()->count() }}</p>
+                                <p class="m-3 font-weight-bold">{{ $course->modul()->count() }} Modul</p>
                                 <i class="bi bi-people-fill"></i>
                                 <p class="m-3 font-weight-bold">0 Siswa</p>
                             </span>

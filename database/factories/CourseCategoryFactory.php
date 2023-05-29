@@ -16,8 +16,16 @@ class CourseCategoryFactory extends Factory
      */
     public function definition(): array
     {
+        $courseCategory = [
+            'Web Development',
+            'Mobile Development',
+            'Machine Learning',
+            'Data Science',
+            'Artificial Intelligence',
+        ];
+
         return [
-            'name_category' => fake()->unique()->word(),
+            'name_category' => $this->faker->randomElement($courseCategory),
         ];
     }
 }
