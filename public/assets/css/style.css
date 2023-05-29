@@ -738,8 +738,10 @@ a:hover {
   margin-bottom: 15px;
 }
 .footer .footer-top .footer-info .logo img {
-  max-height: 40px;
+  max-height: 50px;
+  max-width: 50px;
   margin-right: 6px;
+  object-fit: contain;
   background: #fff;
   border-radius: 10px;
   margin-right: 5px;
