@@ -19,7 +19,7 @@ class MaterialFactory extends Factory
         return [
             'modul_id' => fake()->numberBetween(1, 10),
             'title' => fake()->sentence(3),
-            'description' => fake()->paragraph(3),
+            'content' => fake()->paragraph(3),
         ];
     }
 }

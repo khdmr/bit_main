@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id()->autoIncrement();
             $table->unsignedBigInteger('modul_id');
             $table->string('title');
-            $table->text('description');
+            $table->text('content');
             $table->timestamps();
             $table->foreign('modul_id')->references('id')->on('moduls');
         });

@@ -25,7 +25,7 @@ class CourseCategoryFactory extends Factory
         ];
 
         return [
-            'name_category' => $this->faker->randomElement($courseCategory),
+            'name_category' => $this->faker->unique()->randomElement($courseCategory),
         ];
     }
 }

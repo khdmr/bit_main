@@ -3,10 +3,19 @@
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\BlogPostController;
+use App\Http\Controllers\DashboardBlogPost;
+use App\Http\Controllers\DashboardBootcamp;
+use App\Http\Controllers\DashboardCategoryBootcamp;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DashboardMaterial;
+use App\Http\Controllers\DashboardModul;
+use App\Http\Controllers\DashboardPaymentTransaction;
+use App\Http\Controllers\DashboardUser;
+use App\Http\Controllers\PaymentController;
 use Illuminate\Support\Facades\Route;
+use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +38,7 @@ Route::get('/', [HomeController::class, 'index']);
 //Route Bootcamp
 Route::get('/bootcamp', [CourseController::class, 'index']);
 Route::get('/bootcamp/{course}', [CourseController::class, 'bootcamp']);
+Route::get('/bootcamp/{course}/modul/{material}', [CourseController::class, 'isibootcamp']);
 
 //Route Blog
 Route::get('/blog', [BlogPostController::class, 'index']);
@@ -44,5 +54,30 @@ Route::post('/logout', [LoginController::class, 'logout']);
 Route::get('/register', [RegisterController::class, 'index']);
 Route::post('/register', [RegisterController::class, 'register']);
 
+//Pembayaran
+Route::get('/bootcamp/{course}/pembayaran', [PaymentController::class, 'index']);
+Route::post('/bootcamp/{course}/pembayaran', [PaymentController::class, 'save']);
+
 //Dasboard
 Route::get('/dashboard', [DashboardController::class, 'index']);
+
+//Dashboard Blog Post
+Route::resource('/dashboard/blogposts', DashboardBlogPost::class);
+
+//Dashboard Konfirmasi Pembayaran
+Route::resource('/dashboard/payment', DashboardPaymentTransaction::class);
+
+//Dashboard Bootcamp Category
+Route::resource('/dashboard/bootcampcategory', DashboardCategoryBootcamp::class);
+
+//Dashboard Bootcamp
+Route::resource('/dashboard/bootcamp', DashboardBootcamp::class);
+
+//Dashboard Modul
+Route::resource('/dashboard/modul', DashboardModul::class);
+
+//Dashboard Material
+Route::resource('/dashboard/material', DashboardMaterial::class);
+
+//Dashboard User
+Route::resource('/dashboard/user', DashboardUser::class);

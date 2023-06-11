@@ -738,10 +738,8 @@ a:hover {
   margin-bottom: 15px;
 }
 .footer .footer-top .footer-info .logo img {
-  max-height: 50px;
-  max-width: 50px;
+  max-height: 40px;
   margin-right: 6px;
-  object-fit: contain;
   background: #fff;
   border-radius: 10px;
   margin-right: 5px;
@@ -826,4 +824,24 @@ a:hover {
   text-align: center;
   font-size: 13px;
   color: #172873;
+}
+
+
+.navbar .profil,
+.navbar .profil:focus {
+  background: #fff;
+  width: 50px;
+  margin-left: 30px;
+  border-radius: 4px;
+  color: #2F53EB;
+}
+
+.navbar .profil {
+  padding: 2px;
+  border-radius: 100%;
+}
+
+.navbar .profil img {
+  border-radius: 100%;
+  width: 100%;
 }

@@ -13,10 +13,13 @@ return new class extends Migration
     {
         Schema::create('blog_posts', function (Blueprint $table) {
             $table->id()->autoIncrement();
+            $table->unsignedBigInteger('id_author');
             $table->string('title');
             $table->text('summary');
             $table->text('content');
+            $table->string('image')->nullable();
             $table->timestamps();
+            $table->foreign('id_author')->references('id')->on('users');
         });
     }
 

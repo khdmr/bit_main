@@ -12,43 +12,145 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        //Generate Data User
         // \App\Models\User::factory(10)->create();
+
+        //Generate Data Modul
         \App\Models\Modul::factory(10)->create();
-        \App\Models\CourseCategory::factory(4)->create();
-        // \App\Models\CourseCategory::factory()->create([
-        //     'name_category' => 'Web Developer',
-        // ]);
-        // \App\Models\Course::factory()->create([
-        //     'name_category' => 'Mobile Developer',
-        // ]);
-        // \App\Models\Course::factory()->create([
-        //     'name_category' => 'Machine Learning',
-        // ]);
-        // \App\Models\Course::factory()->create([
-        //     'name_category' => 'Dev-Ops Enginee',
-        // ]);
+        \App\Models\Modul::factory()->create([
+            'name' => 'Pentingnya Data dan informasi',
+            'description' => 'data itu penting dalam membuat keputusan, di mana kita perlu menentukan dan memilah barang apa saja yang perlu dibeli serta menghitung estimasi dana yang harus dikeluarkan untuk membeli barang tersebut.',
+        ]);
+        \App\Models\Modul::factory()->create([
+            'name' => 'Pemroresan Data pada Komputer',
+            'description' => 'pemrosesan data adalah metode mengumpulkan data primer atau data mentah untuk diterjemahkan menjadi informasi yang berguna dan dapat digunakan. Pemrosesan data memiliki tahapan rangkaian mulai dari mengumpulkan, menganalisis, menyimpan, memproses, dan mengkomunikasikan data.',
+        ]);
 
-        \App\Models\Course::factory(8)->create();
+        //Generate Data Course Category
+        // \App\Models\CourseCategory::factory(3)->create();
+        \App\Models\CourseCategory::factory()->create([
+            'name_category' => 'Machine Learning',
+        ]);
+        \App\Models\CourseCategory::factory()->create([
+            'name_category' => 'Mobile Development',
+        ]);
 
+        //Generate Data Course
+        // \App\Models\Course::factory(8)->create();
         \App\Models\Course::factory()->create([
             'title' => 'Analisis Data dan Pembelajaran Mesin',
-            'id_category' => 1, // 'admin
+            'id_category' => 1, 
             'summary' => 'Pelajari analisis data dan konsep pembelajaran mesin untuk pemahaman dan pemanfaatan informasi pada data yang lebih mendalam.',
-            'price' => '500000',
+            'price' => 500000,
         ]);
         \App\Models\Course::factory()->create([
             'title' => 'Pengembangan Aplikasi Desktop dengan Java',
-            'id_category' => 1, // 'admin
+            'id_category' => 2, 
             'summary' => ' Kembangkan aplikasi desktop menggunakan java. Mulai dari desain antarmuka pengguna, manajemen data, dan fitur lainnya.',
-            'price' => '500000',
+            'price' => 400000,
         ]);
 
-        \App\Models\Course_Model::factory(10)->create();
-        \App\Models\Material::factory(8)->create();
-        \App\Models\BlogPost::factory(10)->create();
+        //Generate Data Course Modul
+        \App\Models\Course_Modul::factory(10)->create();
 
+        //Generate Data Material
+        \App\Models\Material::factory(8)->create();  
+        \App\Models\Material::factory()->create([
+            'modul_id' => 2,
+            'title' => 'Pengenalan Data dan Informasi',
+            'content' => '<p>
+            Sebelumnya, kita telah membahas tentang arti dari sebuah data, dan penerapannya dalam kehidupan sehari-hari yang direpresentasikan dalam data penduduk.
+          </p>
+          <p>
+            Sekarang kita tahu bahwa informasi membutuhkan satu atau beberapa data sebagai keterangan. Lalu, mungkin di benak Anda pasti terselipkan pertanyaan, “Kenapa sih kita membutuhkan data?”
+          </p>
+          <p>
+            Mari kita lihat pada gambar berikut:
+          </p>
+          <p>
+            Terlihat bahwa pria tersebut sedang menelepon seorang temannya dengan menggunakan gawai. Tentu kita semua sudah tahu bahwa untuk melakukan panggilan ke orang lain menggunakan gawai, kita perlu tahu nomor telepon tujuan, dan biasanya nomor tersebut sudah tersimpan dalam daftar kontak gawai kita. Nomor telepon inilah yang nantinya akan digunakan oleh provider untuk mencari lokasi dari gawai teman kita. Tenang, kita tidak perlu terlalu dalam membahas sampai bagaimana bisa terhubung ya 
+          </p>
+          <p>
+            Pada kasus ini, bisa dipetik sebuah kesimpulan bahwa agar dapat saling terhubung menggunakan media komunikasi telepon, kita perlu tahu data nomor telepon tujuan. Tujuan di sini bisa diartikan sebagai teman, kerabat atau saudara ya.
+          </p>
+          <p>
+            Oke,  mari kita coba cari kasus lain yah agar dapat menambah pemahaman kita.
+              
+          </p>
+          <p>
+            Pernahkah Anda mengunjungi supermarket, pasar, mall, atau swalayan? Pasti pernah, secara tidak sadar. Oke mari kita intip satu per satu.
+
+          </p>
+          <p>
+            Mari kita fokus ke pasar. Coba bayangkan, pasti di pasar tersebut terdapat banyak toko yang menyediakan berbagai macam keperluan. Anda pasti bisa melihat banyak barang yang diperjualbelikan, seperti perkakas rumah tangga, sayuran, buah-buahan, sembako, sampai tempat makanan. Anda juga akan melihat beberapa toko yang tutup.
+          </p>
+          <p>
+            Nah, apa yang Anda lihat tersebut semuanya adalah data. Dari nama toko yang buka atau tutup, jumlah dan jenis barang yang dijual, jumlah penjual yang berjualan di toko tersebut, dan masih banyak lagi.
+          </p>
+          <p>
+            Kemudian, coba kita intip pada satu tempat lagi, yaitu mall. Di sini juga terdapat berbagai macam toko, dengan konsep yang hampir mirip pasar namun dengan tempat yang lebih besar. Mall juga memiliki beragam jenis toko, seperti fashion, makanan, bahkan bioskop. 
+
+          </p>
+          <p>
+            Namun, ketika mengunjungi toko/kios pada mall, pasti akan disuguhkan dengan barang yang tersusun rapi di rak dan memiliki label harga. Label ini yang memberitahu kepada pembeli nama dan nominal uang yang digunakan untuk membeli barang tersebut. Label ini merupakan suatu data, yang berfungsi untuk  memberitahu pembeli barang apakah itu dan berapa harganya.
+          </p>
+          <p>
+            Hal ini juga menjadi perbedaan pasar dengan mall. Jika kita membeli barang di pasar, kita akan menanyakan harga barang bahkan menawarnya untuk bisa membeli barang tersebut.
+          </p>
+          <p>
+            Dari kedua contoh di atas, bisa diambil kesimpulan bahwa data itu penting dalam membuat keputusan, di mana kita perlu menentukan dan memilah barang apa saja yang perlu dibeli serta menghitung estimasi dana yang harus dikeluarkan untuk membeli barang tersebut.
+          </p>
+          <p>
+            Sebenarnya, ada banyak lagi kasus maupun contoh mengenai pentingnya data pada kehidupan sehari-hari. Karena data - seperti yang dijelaskan sebelumnya, bisa menjadi sebagai alat atau parameter acuan kita untuk mengambil keputusan ketika ingin melakukan sesuatu; sebagai penghubung; dan sebagai landasan dalam mencerna informasi.
+          </p>
+          <p>
+            Karena perannya sangat krusial, maka data dapat disalahgunakan oleh berbagai pihak, sehingga malah dapat merugikan  kita. Seperti yang marak terjadi saat ini, di mana beredar informasi dengan data yang palsu di masyarakat. Oleh karena itu, kita perlu mengedepankan sikap waspada, selalu menyaring informasi yang beredar dan menghindari menyebarkan informasi tersebut.
+          </p>
+          <p>
+            Sekarang, kita dapat mengetahui bahwa peran data itu sangat penting dalam berbagai sendi kehidupan. Kita juga mengetahui sedikit fungsi data dan contoh kegunaannya. Saatnya melangkah lebih maju lagi dengan mengenal berbagai jenis data yang ada.
+          </p>',
+        ]);  
+
+        //Generate Data Role
+        $roles = ['admin', 'mentor', 'user'];
+        foreach ($roles as $role) {
+            \App\Models\Role::factory()->create([
+                'role_name' => $role,
+            ]);
+        }   
+
+        //Generate Data User
+        \App\Models\User::factory(10)->create();
+        \App\Models\User::factory()->create([
+            'name' => 'Muhammad Ibnu',
+            'role_id' => 1, // 'admin
+            'email' => 'muhibnu@gmail.com',
+            'username' => 'muhibnu1',
+            // 'no_telp' => fake()->unique()->phoneNumber(),
+            'password' => bcrypt('admin1'), // password
+        ]);
+        \App\Models\User::factory()->create([
+            'name' => 'Muhammad Irvan',
+            'role_id' => 1, // 'admin
+            'email' => 'muhirvan@gmail.com',
+            'username' => 'muhirvan1',
+            // 'no_telp' => fake()->unique()->phoneNumber(),
+            'password' => bcrypt('admin2'), // password
+        ]);
+        \App\Models\User::factory()->create([
+            'name' => 'Khairul Damar',
+            'role_id' => 1, // 'admin
+            'email' => 'khdmr@gmail.com',
+            'username' => 'khdmr1',
+            // 'no_telp' => fake()->unique()->phoneNumber(),
+            'password' => bcrypt('admin3'), // password
+        ]);
+
+        //Generate Data Blog Post
+        // \App\Models\BlogPost::factory(10)->create();
         \App\Models\BlogPost::factory()->create([
             'title' => 'Melangkah ke Dunia Digital',
+            'id_author' => 1,
             'summary' => 'Temukan berbagai aspek menarik dalam ilmu komputer, dari konsep dasar hingga perkembangan terkini.',
             'content' => 'Dalam era digital yang terus berkembang, ilmu komputer menjadi landasan bagi inovasi dan perubahan yang cepat. Mari kita menjelajahi berbagai aspek menarik dalam ilmu komputer dan memahami peran kritisnya dalam membentuk masa depan kita.
 
@@ -72,6 +174,7 @@ class DatabaseSeeder extends Seeder
         ]);
         \App\Models\BlogPost::factory()->create([
             'title' => 'Praktik AI yang Adil',
+            'id_author' => 2,
             'summary' => 'Sebuah teknologi baru, yang digunakan secara luas, menimbulkan pertanyaan mendalam tentang dampaknya terhadap masyarakat Amerika.',
             'content' => 'Sebuah teknologi baru, yang digunakan secara luas, menimbulkan pertanyaan mendalam tentang dampaknya terhadap masyarakat Amerika. Instansi pemerintah bertanya-tanya apakah teknologi ini harus digunakan untuk membuat keputusan otomatis tentang orang Amerika. Laporan berita mendokumentasikan salah urus dan penyalahgunaan. Pakar akademik meminta perhatian pada kekhawatiran tentang keadilan dan akuntabilitas. Sidang kongres diadakan. Sebuah agen federal melakukan tinjauan komprehensif. Pakar ilmiah dikonsultasikan. Komentar dari masyarakat diminta. Konferensi pers Gedung Putih diumumkan. Sebuah laporan rinci dirilis. Inti dari laporan ini adalah lima prinsip untuk mengatur teknologi baru.
             Saat itu tahun 1973. Dan laporan Records, Computers, and the Rights of Citizens memberikan dasar bagi hukum privasi modern. Laporan tersebut menetapkan lima pilar pengelolaan sistem informasi yang kemudian dikenal sebagai " Praktik Informasi yang Adil". Laporan tersebut akan mengarah langsung ke pengesahan Undang-Undang Privasi 1974, undang-undang privasi paling komprehensif yang pernah diberlakukan di Amerika Serikat. Hingga hari ini, Praktik Informasi yang Adil, yang dikembangkan oleh sebuah komisi yang dipimpin oleh ilmuwan komputer Willis Ware , tetap menjadi konsep perlindungan privasi yang paling berpengaruh.
@@ -93,6 +196,7 @@ class DatabaseSeeder extends Seeder
         ]);
         \App\Models\BlogPost::factory()->create([
             'title' => 'Robot Humanoid Semakin Dewasa',
+            'id_author' => 3,
             'summary' => 'Beberapa startup sekarang sudah mengklaim memiliki model robot humanoid yang hampir siap untuk bekerja di gudang dan pabrik.',
             'content' => 'Delapan tahun yang lalu, Pentagon’s Defense Advanced Research Projects Agency menyelenggarakan  kontes yang menyakitkan untuk ditonton yang melibatkan robot yang perlahan-lahan berjuang (dan seringkali gagal) untuk melakukan serangkaian tugas manusia, termasuk membuka pintu, mengoperasikan perkakas listrik, dan mengendarai kereta golf. Klip dari mereka meraba-raba dan tersandung melalui Darpa Robotics Challenge segera menjadi viral.
             Saat ini, keturunan robot malang itu jauh lebih cakap dan anggun. Beberapa startup sedang mengembangkan humanoid yang mereka klaim dapat, hanya dalam beberapa tahun, mendapatkan pekerjaan di gudang dan pabrik. 
@@ -110,45 +214,56 @@ class DatabaseSeeder extends Seeder
             ',
         ]);
 
-        // $coursecategory = ['Web Development', 'Mobile Development', 'Game Development', 'Data Science'];
-        // foreach ($coursecategory as $category) {
-        //     \App\Models\CourseCategory::factory()->create([
-        //         'name_category' => $category,
-        //     ]);
-        // }
+        //Generate Data Enrollment
+        \App\Models\Enrollment::factory()->create([
+            'id_user' => 1,
+            'id_course' => 1,
+        ]);
+        \App\Models\Enrollment::factory()->create([
+            'id_user' => 1,
+            'id_course' => 2,
+        ]);
+        \App\Models\Enrollment::factory()->create([
+            'id_user' => 2,
+            'id_course' => 1,
+        ]);
+        \App\Models\Enrollment::factory()->create([
+            'id_user' => 2,
+            'id_course' => 2,
+        ]);
+        \App\Models\Enrollment::factory()->create([
+            'id_user' => 3,
+            'id_course' => 1,
+        ]);
+        \App\Models\Enrollment::factory()->create([
+            'id_user' => 4,
+            'id_course' => 1,
+        ]);
 
-        // $courses = ['Web Developments', 'Mobile Developments', 'Game Developments', 'Data Sciences'];
-        // $i = 1;
-        // foreach ($courses as $category) {
-        //     \App\Models\Course::factory()->create([
-        //         'title' => $category,
-        //         'id_category' => $i++,
-        //         'summary' => fake()->paragraph(1),
-        //         'price' => fake()->randomNumber(5, true),
-        //     ]);
-        // }  
-
-        // \App\Models\Course_Model::factory(10)->create();
-        // \App\Models\Material::factory(8)->create();
-        // \App\Models\BlogPost::factory(10)->create();   
-
-        $roles = ['admin', 'mentor', 'user'];
-        foreach ($roles as $role) {
-            \App\Models\Role::factory()->create([
-                'role_name' => $role,
+        //Generate Data Payment Status
+        $payment_status = ['Pending', 'Accepted', 'Rejected'];
+        foreach ($payment_status as $status) {
+            \App\Models\PaymentStatus::factory()->create([
+                'status_name' => $status,
             ]);
-        }   
-        \App\Models\User::factory(10)->create();
+        }
 
-        // \App\Models\User::factory()->create([
-        //     'name' => fake()->name(),
-        //     'role_id' => 1, // 'admin
-        //     'email' => 'abc@gmail.com',
-        //     'username' => fake()->unique()->userName(),
-        //     'no_telp' => fake()->unique()->phoneNumber(),
-        //     'password' => '123', // password
-        // ]);
-
+        //Generate Data Payment
+        \App\Models\payment::factory()->create([
+            'id' => 1,
+            'payments_methods' => 'Dana',
+            'payments_address' => '1234567890',
+        ]);
+        \App\Models\payment::factory()->create([
+            'id' => 2,
+            'payments_methods' => 'Gopay',
+            'payments_address' => '2345678901',
+        ]);
+        \App\Models\payment::factory()->create([
+            'id' => 3,
+            'payments_methods' => 'OVO',
+            'payments_address' => '12234234123',
+        ]);
         
     }
 }

@@ -1,75 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="assets/img/Logo BIT.png" type="image/icon type">
-    <title>Landing Page</title>
-
-
-    <!-- Vendor CSS Files -->
-    <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/vendor/bootstrap-icons/bootstrap-icons.css">
-    <link rel="stylesheet" href="assets/vendor/aos/aos.css">
-    <link rel="stylesheet" href="assets/vendor/remixicon/remixicon.css">
-    <link rel="stylesheet" href="assets/vendor/swiper/swiper-bundle.min.css">
-    <link rel="stylesheet" href="assets/vendor/glightbox/css/glightbox.min.css">
-    <link rel="stylesheet" href="assets/vendor/themify-icons/themify-icons.css">
-    <link rel="stylesheet" href="assets/vendor/slick/slick.css">
-    <link rel="stylesheet" href="assets/vendor/slick/slick-theme.css">
-
-
-    <!-- CSS Style -->
-    <link rel="stylesheet" href="assets/css/style.css">
-
-    <!-- Font Family -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,600;1,200&display=swap"
-        rel="stylesheet">
-</head>
-
-<body>
-
-    <!-- Header -->
-    <header id="header" class="header fixed-top">
-        <!-- Navbar Navigation -->
-        <div id="navbar-container"
-            class="container-fluid container-xl d-flex align-items-center justify-content-between">
-            <a href="/" class="logo d-flex align-items-center">
-                <img src="assets/img/Logo BIT.png" alt="">
-                <span>BIT</span>
-            </a>
-            <nav id="navbar" class="navbar">
-                <ul>
-                    @auth                       
-                    <li><a class="nav-link scrollto active" href="#home">Home</a></li>
-                    <li class="nav-link scrollto"><a href="/bootcamp"><span>Bootcamp</span></a></li>
-                    <li class="nav-link scrollto"><a href="/dashboard"><span>Dashboard</span></a></li>
-                    <li><a class="nav-link scrollto" href="/blog">Blog</a></li>
-
-                    <li><form action="/logout" method="POST">
-                        @csrf
-                        <button type="submit">Log Out</button>
-                    </form></li>
-                    <li><a class="getstarted scrollto" href="">Get Started</a></li>
-                    @else
-                    <li><a class="nav-link scrollto active" href="#home">Home</a></li>
-                    <li class="nav-link scrollto"><a href="/bootcamp"><span>Bootcamp</span></a></li>
-                    <li><a class="nav-link scrollto" href="/blog">Blog</a></li>
-                    <li><a class="" href="/login">Login</a></li>
-                    <li><a class="getstarted scrollto" href="">Get Started</a></li>
-                    <!-- <i class="bi bi-list mobile-nav-toggle"></i> -->
-                    @endauth
-                </ul>
-            </nav>
-        </div>
-
-    </header>
+@extends('layouts.navbar-login')
     <!-- Hero/banner -->
-
+@section('container')
     <section id="home" class="section gradient-banner">
         <div class="shapes-container">
             <div class="shape" data-aos="fade-down-left"></div>
@@ -453,7 +384,7 @@
           </div>
         </div>
       </footer>
-
+      @endsection
     <!-- Vendor JS files -->
     <script src="assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
     <script src="assets/vendor/aos/aos.js"></script>

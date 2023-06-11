@@ -18,6 +18,7 @@ class BlogPostFactory extends Factory
     {
         return [
             'title' => $this->faker->sentence,
+            'id_author' => fake()->numberBetween(1, 7),
             'summary' => $this->faker->paragraph,
             'content' => $this->faker->paragraphs(3, true),
         ];

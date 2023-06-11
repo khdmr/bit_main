@@ -9,7 +9,7 @@ class BlogPostController extends Controller
 {
     public function index()
     {
-        return view('blogs', [
+        return view('blogposts.blogs', [
             'blogposts' => BlogPost::all(),
             'recentblogs' => BlogPost::take(3)->latest()->get(),
             'i'=>1,
@@ -19,7 +19,7 @@ class BlogPostController extends Controller
 
     public function blog(BlogPost $blogpost)
     {
-        return view('blog', [
+        return view('blogposts.blog', [
             'blogpost' => $blogpost,
         ]);
     }

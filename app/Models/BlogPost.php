@@ -14,8 +14,13 @@ class BlogPost extends Model
         'id',
     ];
 
-    // public function Author(): BelongsTo
-    // {
-    //     return $this->belongsTo(User::class, 'foreign_key', 'other_key');
-    // }
+    /**
+     * Get the user that owns the BlogPost
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function User(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'id_author');
+    }
 }

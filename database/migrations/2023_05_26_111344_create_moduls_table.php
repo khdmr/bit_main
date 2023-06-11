@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('moduls', function (Blueprint $table) {
             $table->id()->autoIncrement();
             $table->string('name')->unique();
-            $table->string('description');
+            $table->text('description');
             $table->timestamps();
         });
     }

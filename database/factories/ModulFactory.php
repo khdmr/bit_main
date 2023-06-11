@@ -18,7 +18,7 @@ class ModulFactory extends Factory
     {
         return [
             'name' => fake()->unique()->word(),
-            'description' => fake()->sentence(1),
+            'description' => fake()->sentence(3),
         ];
     }
 }

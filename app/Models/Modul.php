@@ -17,7 +17,7 @@ class Modul extends Model
     
     public function Course(): BelongsToMany
     {
-        return $this->belongsToMany(Course::class, 'course__models', 'id_modul', 'id_course');
+        return $this->belongsToMany(Course::class, 'course__moduls', 'id_modul', 'id_course');
     }
 
     public function Material(): HasMany

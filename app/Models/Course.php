@@ -17,11 +17,21 @@ class Course extends Model
 
     public function Modul(): BelongsToMany
     {
-        return $this->belongsToMany(Modul::class, 'course__models', 'id_course', 'id_modul');
+        return $this->belongsToMany(Modul::class, 'course__moduls', 'id_course', 'id_modul');
     }
 
     public function CourseCategory(): BelongsTo
     {
         return $this->belongsTo(CourseCategory::class, 'id_category');
+    }
+
+    public function User(): BelongsToMany
+    {
+        return $this->belongsToMany(User::class, 'enrollments', 'id_course', 'id_user');
+    }
+
+    public function UserPayment(): BelongsToMany
+    {
+        return $this->belongsToMany(User::class, 'payment_transactions', 'id_course', 'id_user');
     }
 }
