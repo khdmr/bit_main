@@ -67,11 +67,11 @@
                                 <i class="ri-book-3-line"></i>
                                 <p class="m-3 font-weight-bold">{{ $course->modul()->count() }} Modul</p>
                                 <i class="bi bi-people-fill"></i>
-                                <p class="m-3 font-weight-bold">{{ $course->user()->count() }}</p>
+                                <p class="m-3 font-weight-bold">{{ $course->user()->count() }} Siswa</p>
                             </span>
                         
                         </div>
-                        <p>{{ $course["summary"] }}</p>
+                        <p>{!! $course["summary"] !!}</p>
                     </div>
                     <a href="/bootcamp/{{ $course->id }}" class="button">Lihat Kelas</a>
                 </div>
