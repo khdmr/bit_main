@@ -28,8 +28,8 @@
                     <tr>
                         <th scope="row">{{ $loop ->iteration  }}</th>
                         <td>{{ $course->title}}</td>
-                        <td>{{ $course->summary}}</td>
-                        <td>{{ $course->price }}</td>
+                        <td>{!! $course->summary !!}</td>
+                        <td>Rp{{ $course->price }}</td>
                         <td>
                             <button class="btn btn-success"><a href="/dashboard/bootcamp/{{ $course->id }}"><span class="text-primary">show</span></a></button>
                             <button class="btn btn-warning"><a href="/dashboard/bootcamp/{{ $course->id }}/edit"><span class="text-primary">edit</span></a></button>
@@ -49,17 +49,3 @@
    
 </main>
 @endsection
-
-    <!-- Vendor JS files -->
-    <script src="{{ URL::asset('assets/vendor/bootstrap/js/bootstrap.bundle.js')}}"></script>
-    <script src="{{ URL::asset('assets/vendor/aos/aos.js')}}"></script>
-    <script src="{{ URL::asset('assets/vendor/php-email-form/validate.js')}}"></script>
-    <script src="{{ URL::asset('assets/vendor/swiper/swiper-bundle.min.js')}}"></script>
-    <script src="{{ URL::asset('assets/vendor/purecounter/purecounter.js')}}"></script>
-    <script src="{{ URL::asset('assets/vendor/isotope-layout/isotope.pkgd.min.js')}}"></script>
-    <script src="{{ URL::asset('assets/vendor/glightbox/js/glightbox.min.js')}}"></script>
-
-    <!-- File JS -->
-    <script src="{{ URL::asset('assets/js/main.js')}}"></script>
-</body>
-</html>

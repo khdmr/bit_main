@@ -14,6 +14,8 @@ class DashboardUser extends Controller
     public function index()
     {
         return view('dashboard.user.index', [
+            'title' => 'User',
+            'orang' => auth()->user(),
             'users' => User::all()
         ]);
     }
@@ -24,6 +26,8 @@ class DashboardUser extends Controller
     public function create()
     {
         return view('dashboard.user.create',[
+            'title' => 'Create User',
+            'orang' => auth()->user(),
             'roles' => Role::all()
         ]);
     }
@@ -58,6 +62,8 @@ class DashboardUser extends Controller
     public function show(User $user)
     {
         return view('dashboard.user.show', [
+            'title' => $user->name,
+            'orang' => auth()->user(),
             'user' => $user
         ]);
     }
@@ -68,6 +74,8 @@ class DashboardUser extends Controller
     public function edit(User $user)
     {
         return view('dashboard.user.edit', [
+            'title' => 'Edit User',
+            'orang' => auth()->user(),
             'user' => $user,
             'roles' => Role::all(),
         ]);

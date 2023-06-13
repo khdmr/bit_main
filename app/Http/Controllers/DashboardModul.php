@@ -15,6 +15,8 @@ class DashboardModul extends Controller
     public function index()
     {
         return view('dashboard.modul.index', [
+            'title' => 'Modul',
+            'orang' => auth()->user(),
             'moduls' => Modul::all(),
         ]);
     }
@@ -25,6 +27,8 @@ class DashboardModul extends Controller
     public function create()
     {
         return view('dashboard.modul.create',[
+            'title' => 'Create Modul',
+            'orang' => auth()->user(),
             'courses' => Course::all(),
         ]);
     }
@@ -37,18 +41,18 @@ class DashboardModul extends Controller
         $validated = $request->validate([
             'name' => 'required|max:255|unique:moduls',
             'description' => 'required|max:512',
-            // 'id_course' => 'required|exists:courses,id',
+            'id_course' => 'required|exists:courses,id',
         ]);
 
         // if ($request->file('image')) {
         //     $validated['image'] = $request->file('image')->store('blogspot_images');
         // }
         Modul::create($validated);
-        // $id_modul = Modul::all()->last()->id;
-        // Course_Modul::create([
-        //     'id_course' => $validated['id_course'],
-        //     'id_modul' => $id_modul,
-        // ]);
+        $id_modul = Modul::all()->last()->id;
+        Course_Modul::create([
+            'id_course' => $validated['id_course'],
+            'id_modul' => $id_modul,
+        ]);
         return redirect('/dashboard/modul')->with('success', 'Modul created successfully!');
     }
 
@@ -58,6 +62,8 @@ class DashboardModul extends Controller
     public function show(Modul $modul)
     {
         return view('dashboard.modul.show', [
+            'title' => $modul->name,
+            'orang' => auth()->user(),
             'modul' => $modul
         ]);
     }
@@ -68,6 +74,8 @@ class DashboardModul extends Controller
     public function edit(Modul $modul)
     {
         return view('dashboard.modul.edit', [
+            'title' => 'Edit Modul',
+            'orang' => auth()->user(),
             'modul' => $modul
         ]);
     }

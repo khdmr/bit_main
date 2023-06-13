@@ -16,6 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('id_category');
             $table->string('title')->unique();
             $table->text('summary');
+            $table->text('description');
             $table->integer('price');
             $table->timestamps();
             $table->foreign('id_category')->references('id')->on('course_categories');

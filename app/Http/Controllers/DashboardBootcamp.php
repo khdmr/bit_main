@@ -14,6 +14,8 @@ class DashboardBootcamp extends Controller
     public function index()
     {
         return view('dashboard.bootcamp.index',[
+            'title' => 'Bootcamp',
+            'orang' => auth()->user(),
             'courses' => Course::all()
         ]);
     }
@@ -24,6 +26,8 @@ class DashboardBootcamp extends Controller
     public function create()
     {
         return view('dashboard.bootcamp.create',[
+            'title' => 'Create Bootcamp',
+            'orang' => auth()->user(),
             'categories' => CourseCategory::all()
         ]);
     }
@@ -37,6 +41,7 @@ class DashboardBootcamp extends Controller
             'id_category' => 'required|exists:course_categories,id',
             'title' => 'required|max:255|unique:courses',
             'summary' => 'required|max:512',
+            'description' => 'required',
             'price' => 'required|numeric',
         ]);
 
@@ -50,6 +55,8 @@ class DashboardBootcamp extends Controller
     public function show(Course $bootcamp)
     {
         return view('dashboard.bootcamp.show', [
+            'title' => $bootcamp->title,
+            'orang' => auth()->user(),
             'course' => $bootcamp,
         ]);
     }
@@ -60,6 +67,8 @@ class DashboardBootcamp extends Controller
     public function edit(Course $bootcamp)
     {
         return view('dashboard.bootcamp.edit', [
+            'title' => 'Edit Bootcamp',
+            'orang' => auth()->user(),
             'course' => $bootcamp,
             'categories' => CourseCategory::all(),
         ]);
@@ -73,6 +82,7 @@ class DashboardBootcamp extends Controller
         $rules = ([
             'id_category' => 'required|exists:course_categories,id',
             'summary' => 'required|max:512',
+            'description' => 'required',
             'price' => 'required|numeric',
         ]);
         

@@ -14,6 +14,8 @@ class DashboardMaterial extends Controller
     public function index()
     {
         return view('dashboard.material.index', [
+            'title' => 'Material',
+            'orang' => auth()->user(),
             'materials' => Material::all()
         ]);
     }
@@ -24,6 +26,8 @@ class DashboardMaterial extends Controller
     public function create()
     {
         return view('dashboard.material.create', [
+            'title' => 'Create Material',
+            'orang' => auth()->user(),
             'moduls' => Modul::all()
         ]);
     }
@@ -35,7 +39,7 @@ class DashboardMaterial extends Controller
     {
         $validated = $request->validate([
             'title' => 'required|max:255|unique:materials',
-            'content' => 'required|max:1024',
+            'content' => 'required|max:3000',
             'modul_id' => 'required|exists:moduls,id',
         ]);
 
@@ -53,6 +57,8 @@ class DashboardMaterial extends Controller
     public function show(Material $material)
     {
         return view('dashboard.material.show', [
+            'title' => $material->title,
+            'orang' => auth()->user(),
             'material' => $material
         ]);
     }
@@ -63,6 +69,8 @@ class DashboardMaterial extends Controller
     public function edit(Material $material)
     {
         return view('dashboard.material.edit', [
+            'title' => 'Edit Material',
+            'orang' => auth()->user(),
             'material' => $material,
             'moduls' => Modul::all()
         ]);
@@ -74,7 +82,7 @@ class DashboardMaterial extends Controller
     public function update(Request $request, Material $material)
     {
         $rules = ([
-            'content' => 'required|max:1024',
+            'content' => 'required|max:3000',
             'modul_id' => 'required|exists:moduls,id',
             // 'image' => 'image|file|max:2048',
         ]);

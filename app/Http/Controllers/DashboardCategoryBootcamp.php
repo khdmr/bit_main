@@ -13,6 +13,8 @@ class DashboardCategoryBootcamp extends Controller
     public function index()
     {
         return view('dashboard.bootcampcategory.index', [
+            'title' => 'Bootcamp Category',
+            'orang' => auth()->user(),
             'categories' => CourseCategory::all()
         ]);
     }
@@ -22,7 +24,10 @@ class DashboardCategoryBootcamp extends Controller
      */
     public function create()
     {
-        return view('dashboard.bootcampcategory.create');
+        return view('dashboard.bootcampcategory.create',[
+            'title' => 'Create Bootcamp Category',
+            'orang' => auth()->user(),
+        ]);
     }
 
     /**
@@ -44,6 +49,8 @@ class DashboardCategoryBootcamp extends Controller
     public function show(CourseCategory $bootcampcategory)
     {
         return view('dashboard.bootcampcategory.category', [
+            'title' => $bootcampcategory->name_category,
+            'orang' => auth()->user(),
             'bootcampcategory' => $bootcampcategory
         ]);
     }
@@ -54,6 +61,8 @@ class DashboardCategoryBootcamp extends Controller
     public function edit(CourseCategory $bootcampcategory)
     {
         return view('dashboard.bootcampcategory.edit', [
+            'title' => 'Edit Category',
+            'orang' => auth()->user(),
             'bootcampcategory' => $bootcampcategory
         ]);
     }

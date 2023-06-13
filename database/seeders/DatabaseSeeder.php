@@ -12,104 +12,86 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        //Generate Data User
-        // \App\Models\User::factory(10)->create();
-
         //Generate Data Modul
-        \App\Models\Modul::factory(10)->create();
         \App\Models\Modul::factory()->create([
-            'name' => 'Pentingnya Data dan informasi',
-            'description' => 'data itu penting dalam membuat keputusan, di mana kita perlu menentukan dan memilah barang apa saja yang perlu dibeli serta menghitung estimasi dana yang harus dikeluarkan untuk membeli barang tersebut.',
+            'name' => '1.	Persiapan Membangun dan Menjalankan Program Kotlin',
+            'description' => 'Membuat program pertama di Kotlin dan menjalankannya. Selain itu, Anda akan belajar bagaimana menyiapkan dan menginstal beberapa tools seperti IDE dan build tools. Materi ini akan fokus pada penggunaan Gradle sebagai build tools dan menggunakan Kotlin DSL sebagai bahasa pada Gradle. Selain itu, pada materi ini akan membahas tentang struktur Gradle, cara menambahkan dependensi, menambahkan plugin, dan cara mengkonfigurasi plugin.',
         ]);
         \App\Models\Modul::factory()->create([
-            'name' => 'Pemroresan Data pada Komputer',
-            'description' => 'pemrosesan data adalah metode mengumpulkan data primer atau data mentah untuk diterjemahkan menjadi informasi yang berguna dan dapat digunakan. Pemrosesan data memiliki tahapan rangkaian mulai dari mengumpulkan, menganalisis, menyimpan, memproses, dan mengkomunikasikan data.',
+            'name' => '1.	Pengenalan Dart',
+            'description' => 'Mengenal apa itu Dart, karakteristiknya, dan platform apa saja yang didukung.',
+        ]);
+        \App\Models\Modul::factory()->create([
+            'name' => '1.	Pengenalan Swift',
+            'description' => 'Mengenalkan bahasa Swift serta environment yang dibutuhkan untuk mempelajari bahasa pemrograman Swift.',
         ]);
 
         //Generate Data Course Category
         // \App\Models\CourseCategory::factory(3)->create();
         \App\Models\CourseCategory::factory()->create([
-            'name_category' => 'Machine Learning',
+            'name_category' => 'Android Development',
         ]);
         \App\Models\CourseCategory::factory()->create([
-            'name_category' => 'Mobile Development',
+            'name_category' => 'IOS Development',
+        ]);
+        \App\Models\CourseCategory::factory()->create([
+            'name_category' => 'Cross-Platform Development',
         ]);
 
         //Generate Data Course
         // \App\Models\Course::factory(8)->create();
         \App\Models\Course::factory()->create([
-            'title' => 'Analisis Data dan Pembelajaran Mesin',
+            'title' => 'Memulai Pemrograman Dengan Kotlin',
             'id_category' => 1, 
-            'summary' => 'Pelajari analisis data dan konsep pembelajaran mesin untuk pemahaman dan pemanfaatan informasi pada data yang lebih mendalam.',
+            'summary' => '<div> Pelajari dasar bahasa pemrograman, functional programming, object-oriented programming (OOP), serta concurrency dengan menggunakan Kotlin. </div>.',
+            'description' => '<div>Kotlin merupakan bahasa utama yang digunakan dalam pengembangan Android saat ini. Hal ini karena manfaat yang diberikan seperti ringkas, cepat, dan aman. Selain itu, sifatnya yang interoperability membuat developer bisa beralih dari bahasa Java ke Kotlin dengan cepat. Tak ayal, Google pernah melaporkan hampir 80% dari 1000 aplikasi teratas di Play Store menggunakan Kotlin. Selain pengembangan Android, Kotlin dapat digunakan untuk berbagai macam pengembangan, baik itu server, back-end, maupun website.<br><br></div><ul><li>Materi relevan dengan tools dan framework yang banyak dipakai sekarang. </li><li>Dengan menggunakan Kotlin pengembangan aplikasi akan jauh lebih cepat. </li><li>Pengembangan aplikasi menggunakan Kotlin bisa berjalan bersamaan dengan Java dalam satu project. </li><li>Kotlin menjadi bahasa resmi yang direkomendasikan dalam pengembangan Android. </li><li>Kotlin juga dapat digunakan untuk pengembangan platform selain seperti server, back-end, dan website.</li></ul>',
             'price' => 500000,
         ]);
         \App\Models\Course::factory()->create([
-            'title' => 'Pengembangan Aplikasi Desktop dengan Java',
+            'title' => 'Memulai Pemrograman Dengan Dart',
+            'id_category' => 3, 
+            'summary' => ' <div>Belajar bahasa Dart sebagai fondasi dasar untuk mengembangkan aplikasi di berbagai platform menggunakan Flutter.</div>',
+            'description' => '<div>Dart adalah sebuah bahasa pemrograman yang dikembangkan oleh Google dan merupakan bahasa pemrograman resmi untuk Flutter, sebuah UI toolkit dan aplikasi multiplatform dari Google. Flutter sendiri telah digunakan oleh berbagai perusahaan besar seperti Google, Alibaba.com, dan Tencent karena dapat menghemat waktu dan tenaga dengan cara cukup membutuhkan satu codebase untuk mengembangkan aplikasi di berbagai platform, daripada harus menghabiskan waktu untuk membuat codebase terpisah untuk masing-masing platform.<br><br></div><ul><li>Dart merupakan bahasa yang wajib Anda kuasai untuk mengembangkan aplikasi Flutter.</li><li>Dengan Dart, Anda hanya perlu satu codebase untuk dapat mengembangkan aplikasi pada berbagai platform seperti web, Android, dan iOS.</li><li>Bahasa Dart dirancang supaya familier dengan bahasa pemrograman lain sehingga mudah bagi yang sudah mengerti bahasa pemrograman lain maupun bagi yang baru memulai perjalanannya sebagai developer.</li><li>Penggunaan bahasa Dart itu gratis (open source) dan dikembangkan oleh komunitas developer ahli yang aktif dan terbuka.</li><li>Dart adalah bahasa yang dioptimalkan untuk pengembangan UI secara cepat dan produktif pada banyak platform.</li></ul>',
+            'price' => 400000,
+        ]);
+        \App\Models\Course::factory()->create([
+            'title' => 'Memulai Pemrograman Dengan Swift',
             'id_category' => 2, 
-            'summary' => ' Kembangkan aplikasi desktop menggunakan java. Mulai dari desain antarmuka pengguna, manajemen data, dan fitur lainnya.',
+            'summary' => ' <div>Belajar bahasa Swift buat kamu yang ingin mempelajari konsep dasar pemrograman dalam mengembangkan aplikasi iOS, iPadOS, dan macOS.</div>',
+            'description' => '<div>Sejak dikenalkan di Apple Wordwide Developer Conference (WWDC) pada tahun 2014, Swift menjadi bahasa resmi yang dikembangkan oleh Apple Inc untuk pengembangan aplikasi iOS, iPadOs, masOS, wathcOS, tvOS, dan linux. Swift merupakan bahasa pemrograman yang modern, cepat, dan type-safe. Selain itu, Swift merupakan hasil pengembangan dari bahasa Objective-C, sehingga ia lebih mudah dipelajari dan dibaca. Tidak ada keraguan bahwa pecinta Swift akan terus tumbuh dalam waktu dekat dan mungkin Anda salah satunya. <br><br></div><ul><li>Swift merupakan bahasa resmi dari Apple Inc. untuk membangun aplikasi iOS, iPadOs, macOS, watchOS, tvOS, dan Linux.</li><li>Swift akan membantu Anda selama proses pengembangan aplikasi iOS.</li><li>Swift merupakah bahasa pemrograman yang modern, cepat, dan type-safe.</li><li>Swift merupakan hasil pengembangan dari bahasa Objective-C, dapat dikatakan Objective-C tanpa C. Oleh karena itu, bahasa pemrograman Swift lebih mudah dibaca dan dipelajari dibandingkan Objective-C.</li></ul>',
             'price' => 400000,
         ]);
 
-        //Generate Data Course Modul
-        \App\Models\Course_Modul::factory(10)->create();
-
         //Generate Data Material
-        \App\Models\Material::factory(8)->create();  
+        \App\Models\Material::factory()->create([
+            'modul_id' => 1,
+            'title' => '1.	Persiapan Membangun dan Menjalankan Program Kotlin',
+            'content' => '<div>Pendahuluan: Kotlin adalah bahasa pemrograman modern yang dapat digunakan untuk mengembangkan aplikasi berbasis Android, server-side, dan aplikasi lintas platform. Untuk memulai membangun dan menjalankan program Kotlin, Anda perlu melakukan beberapa persiapan dan mengatur lingkungan kerja yang tepat. Dalam materi ini, kami akan membahas langkah-langkah persiapan yang diperlukan untuk membangun dan menjalankan program Kotlin.</div><ol><li>Instalasi Java Development Kit (JDK): Sebelum Anda dapat memulai dengan Kotlin, Anda perlu menginstal Java Development Kit (JDK) di komputer Anda. Kotlin berjalan di atas platform Java, sehingga JDK diperlukan untuk mengkompilasi dan menjalankan kode Kotlin. Pastikan Anda mengunduh JDK versi terbaru dari situs resmi Oracle dan mengikuti petunjuk instalasi yang diberikan.</li><li>Instalasi Kotlin: Setelah JDK terinstal, langkah berikutnya adalah menginstal Kotlin. Ada beberapa cara untuk menginstal Kotlin, namun dalam materi ini, kami akan menggunakan alat manajemen dependensi bernama "Gradle" untuk mengatur proyek Kotlin. Berikut langkah-langkahnya:<ol><li>Unduh dan pasang Gradle: Kunjungi situs web resmi Gradle dan ikuti petunjuk instalasi untuk sistem operasi Anda.</li><li>Buat Proyek Kotlin: Buat direktori baru di komputer Anda untuk proyek Kotlin Anda.</li><li>Inisialisasi Proyek Kotlin: Buka terminal atau command prompt, lalu arahkan ke direktori proyek Kotlin yang baru saja Anda buat.</li><li>Konfigurasi Proyek Kotlin: Setelah berada di direktori proyek, inisialisasi proyek Kotlin menggunakan perintah <strong>gradle init</strong>. Pilih opsi "application" saat diminta tipe proyek.</li><li>Sinkronisasi Dependensi: Jalankan perintah <strong>gradle build</strong> untuk men-download dependensi Kotlin dan mengkonfigurasi proyek Anda.</li></ol></li></ol><div><br></div>',
+        ]);  
         \App\Models\Material::factory()->create([
             'modul_id' => 2,
-            'title' => 'Pengenalan Data dan Informasi',
-            'content' => '<p>
-            Sebelumnya, kita telah membahas tentang arti dari sebuah data, dan penerapannya dalam kehidupan sehari-hari yang direpresentasikan dalam data penduduk.
-          </p>
-          <p>
-            Sekarang kita tahu bahwa informasi membutuhkan satu atau beberapa data sebagai keterangan. Lalu, mungkin di benak Anda pasti terselipkan pertanyaan, “Kenapa sih kita membutuhkan data?”
-          </p>
-          <p>
-            Mari kita lihat pada gambar berikut:
-          </p>
-          <p>
-            Terlihat bahwa pria tersebut sedang menelepon seorang temannya dengan menggunakan gawai. Tentu kita semua sudah tahu bahwa untuk melakukan panggilan ke orang lain menggunakan gawai, kita perlu tahu nomor telepon tujuan, dan biasanya nomor tersebut sudah tersimpan dalam daftar kontak gawai kita. Nomor telepon inilah yang nantinya akan digunakan oleh provider untuk mencari lokasi dari gawai teman kita. Tenang, kita tidak perlu terlalu dalam membahas sampai bagaimana bisa terhubung ya 
-          </p>
-          <p>
-            Pada kasus ini, bisa dipetik sebuah kesimpulan bahwa agar dapat saling terhubung menggunakan media komunikasi telepon, kita perlu tahu data nomor telepon tujuan. Tujuan di sini bisa diartikan sebagai teman, kerabat atau saudara ya.
-          </p>
-          <p>
-            Oke,  mari kita coba cari kasus lain yah agar dapat menambah pemahaman kita.
-              
-          </p>
-          <p>
-            Pernahkah Anda mengunjungi supermarket, pasar, mall, atau swalayan? Pasti pernah, secara tidak sadar. Oke mari kita intip satu per satu.
-
-          </p>
-          <p>
-            Mari kita fokus ke pasar. Coba bayangkan, pasti di pasar tersebut terdapat banyak toko yang menyediakan berbagai macam keperluan. Anda pasti bisa melihat banyak barang yang diperjualbelikan, seperti perkakas rumah tangga, sayuran, buah-buahan, sembako, sampai tempat makanan. Anda juga akan melihat beberapa toko yang tutup.
-          </p>
-          <p>
-            Nah, apa yang Anda lihat tersebut semuanya adalah data. Dari nama toko yang buka atau tutup, jumlah dan jenis barang yang dijual, jumlah penjual yang berjualan di toko tersebut, dan masih banyak lagi.
-          </p>
-          <p>
-            Kemudian, coba kita intip pada satu tempat lagi, yaitu mall. Di sini juga terdapat berbagai macam toko, dengan konsep yang hampir mirip pasar namun dengan tempat yang lebih besar. Mall juga memiliki beragam jenis toko, seperti fashion, makanan, bahkan bioskop. 
-
-          </p>
-          <p>
-            Namun, ketika mengunjungi toko/kios pada mall, pasti akan disuguhkan dengan barang yang tersusun rapi di rak dan memiliki label harga. Label ini yang memberitahu kepada pembeli nama dan nominal uang yang digunakan untuk membeli barang tersebut. Label ini merupakan suatu data, yang berfungsi untuk  memberitahu pembeli barang apakah itu dan berapa harganya.
-          </p>
-          <p>
-            Hal ini juga menjadi perbedaan pasar dengan mall. Jika kita membeli barang di pasar, kita akan menanyakan harga barang bahkan menawarnya untuk bisa membeli barang tersebut.
-          </p>
-          <p>
-            Dari kedua contoh di atas, bisa diambil kesimpulan bahwa data itu penting dalam membuat keputusan, di mana kita perlu menentukan dan memilah barang apa saja yang perlu dibeli serta menghitung estimasi dana yang harus dikeluarkan untuk membeli barang tersebut.
-          </p>
-          <p>
-            Sebenarnya, ada banyak lagi kasus maupun contoh mengenai pentingnya data pada kehidupan sehari-hari. Karena data - seperti yang dijelaskan sebelumnya, bisa menjadi sebagai alat atau parameter acuan kita untuk mengambil keputusan ketika ingin melakukan sesuatu; sebagai penghubung; dan sebagai landasan dalam mencerna informasi.
-          </p>
-          <p>
-            Karena perannya sangat krusial, maka data dapat disalahgunakan oleh berbagai pihak, sehingga malah dapat merugikan  kita. Seperti yang marak terjadi saat ini, di mana beredar informasi dengan data yang palsu di masyarakat. Oleh karena itu, kita perlu mengedepankan sikap waspada, selalu menyaring informasi yang beredar dan menghindari menyebarkan informasi tersebut.
-          </p>
-          <p>
-            Sekarang, kita dapat mengetahui bahwa peran data itu sangat penting dalam berbagai sendi kehidupan. Kita juga mengetahui sedikit fungsi data dan contoh kegunaannya. Saatnya melangkah lebih maju lagi dengan mengenal berbagai jenis data yang ada.
-          </p>',
+            'title' => '1.	Kenalan dengan Dart',
+            'content' => '<div><br>Dart adalah bahasa pemrograman yang dikembangkan oleh Google. Itu dirancang untuk mengembangkan aplikasi lintas platform, terutama aplikasi berbasis Flutter untuk Android, iOS, web, dan desktop. Dart menggunakan sintaks yang familiar dan memadukan fitur-fitur modern yang memungkinkan pengembang untuk membuat aplikasi yang efisien dan kaya fitur. Dalam materi ini, kita akan mengenalkan dasar-dasar Dart dan fitur-fitur utamanya.<br><br></div><div><br></div><ol><li>Sejarah Singkat Dart: Dart diperkenalkan oleh Google pada tahun 2011 sebagai alternatif untuk bahasa JavaScript dalam pengembangan aplikasi web. Namun, seiring waktu, Dart berkembang menjadi bahasa pemrograman yang serbaguna untuk mengembangkan aplikasi lintas platform. Pada tahun 2018, Google merilis Flutter, kerangka kerja UI yang berbasis Dart, yang memberikan dorongan besar bagi popularitas dan adopsi Dart.</li><li>Fitur-fitur Utama Dart:<br>Berikut adalah beberapa fitur utama dari bahasa pemrograman Dart:<ol><li>Tipe Data Statis: Dart menggunakan sistem tipe data statis. Ini berarti Anda harus mendeklarasikan tipe variabel saat menggunakannya. Hal ini membantu mengidentifikasi kesalahan tipe data selama kompilasi dan meningkatkan keamanan dan kinerja aplikasi.</li><li>Penanganan Eror yang Kuat: Dart memiliki mekanisme yang kuat untuk menangani eror dan pengecualian. Dengan menggunakan blok <strong>try-catch-finally</strong>, Anda dapat menangkap dan menangani eror dengan baik dalam kode Anda.</li><li>Asinkron dan Future: Dart mendukung pemrograman asinkron menggunakan kata kunci <strong>async</strong> dan <strong>await</strong>. Ini memungkinkan Anda untuk melakukan operasi yang berpotensi memblokir seperti permintaan jaringan tanpa menghentikan eksekusi program.</li><li>Pemrograman Berorientasi Objek: Dart adalah bahasa pemrograman berorientasi objek. Anda dapat menggunakan kelas, objek, pewarisan, polimorfisme, dan konsep pemrograman berorientasi objek lainnya untuk membangun aplikasi yang terstruktur.</li><li>Koleksi Data: Dart menyediakan koleksi data seperti List, Set, dan Map untuk memanipulasi dan mengelola data dengan mudah.</li></ol></li></ol>',
         ]);  
+        \App\Models\Material::factory()->create([
+            'modul_id' => 3,
+            'title' => '1.	Kenalan dengan Swift',
+            'content' => '<div>Swift adalah bahasa pemrograman modern yang dikembangkan oleh Apple Inc. untuk mengembangkan aplikasi untuk platform Apple seperti iOS, macOS, watchOS, dan tvOS. Swift diklaim sebagai bahasa yang aman, ekspresif, dan efisien dengan sintaks yang bersih dan mudah dipahami. Dalam materi ini, kita akan mengenalkan dasar-dasar Swift dan fitur-fitur utamanya.</div><ol><li>Sejarah Singkat Swift: Swift diperkenalkan oleh Apple pada tahun 2014 sebagai pengganti bahasa pemrograman Objective-C dalam pengembangan aplikasi iOS. Tujuannya adalah untuk menyediakan bahasa yang lebih modern, lebih aman, dan lebih mudah dipelajari daripada Objective-C. Sejak itu, Swift telah berkembang menjadi bahasa pemrograman populer yang digunakan secara luas dalam pengembangan aplikasi Apple.</li><li>Fitur-fitur Utama Swift: Berikut adalah beberapa fitur utama dari bahasa pemrograman Swift:<ol><li>Sintaks Bersih dan Ekspresif: Swift menggunakan sintaks yang bersih dan mudah dipahami, membuatnya lebih mudah bagi pengembang pemula dan berpengalaman untuk membaca, menulis, dan memelihara kode.</li><li>Tipe Data Statis: Swift menggunakan sistem tipe data statis yang kuat. Hal ini membantu mengidentifikasi dan mencegah kesalahan tipe data selama kompilasi, meningkatkan keandalan dan kinerja aplikasi.</li><li>Pemrograman Berorientasi Objek: Swift mendukung paradigma pemrograman berorientasi objek dengan konsep seperti class, objek, pewarisan, dan polimorfisme.</li><li>Keamanan: Swift didesain dengan fokus pada keamanan. Beberapa fitur keamanan termasuk penanganan otomatis terhadap kebocoran memori dengan menggunakan ARC (Automatic Reference Counting), pengolahan yang aman terhadap nilai-nilai opsional, dan penanganan eror yang kuat.</li><li>Cepat dan Efisien: Swift memiliki performa yang tinggi dan efisiensi yang baik. Dibangun dengan menggunakan teknologi modern, Swift memberikan waktu eksekusi yang lebih cepat dan penggunaan memori yang lebih efisien.<br><br></li></ol></li></ol>',
+        ]);  
+
+        //Generate Course Modul
+        \App\Models\Course_Modul::factory()->create([
+            'id_course' => 1,
+            'id_modul' => 1,
+        ]);
+        \App\Models\Course_Modul::factory()->create([
+            'id_course' => 2,
+            'id_modul' => 2,
+        ]);
+        \App\Models\Course_Modul::factory()->create([
+            'id_course' => 3,
+            'id_modul' => 3,
+        ]);
 
         //Generate Data Role
         $roles = ['admin', 'mentor', 'user'];
@@ -120,7 +102,6 @@ class DatabaseSeeder extends Seeder
         }   
 
         //Generate Data User
-        \App\Models\User::factory(10)->create();
         \App\Models\User::factory()->create([
             'name' => 'Muhammad Ibnu',
             'role_id' => 1, // 'admin
@@ -144,6 +125,28 @@ class DatabaseSeeder extends Seeder
             'username' => 'khdmr1',
             // 'no_telp' => fake()->unique()->phoneNumber(),
             'password' => bcrypt('admin3'), // password
+        ]);
+        \App\Models\User::factory()->create([
+            'name' => 'Noel Kurniawan',
+            'role_id' => 3, // 'user
+            'email' => 'Noel@gmail.com',
+            'username' => 'Noel123',
+            // 'no_telp' => fake()->unique()->phoneNumber(),
+            'password' => bcrypt('user1'), // password
+        ]);
+
+        //Generate Enrollment
+        \App\Models\Enrollment::factory()->create([
+            'id_user' => 1,
+            'id_course' => 1,
+        ]);
+        \App\Models\Enrollment::factory()->create([
+            'id_user' => 1,
+            'id_course' => 2,
+        ]);
+        \App\Models\Enrollment::factory()->create([
+            'id_user' => 2,
+            'id_course' => 1,
         ]);
 
         //Generate Data Blog Post
@@ -214,34 +217,8 @@ class DatabaseSeeder extends Seeder
             ',
         ]);
 
-        //Generate Data Enrollment
-        \App\Models\Enrollment::factory()->create([
-            'id_user' => 1,
-            'id_course' => 1,
-        ]);
-        \App\Models\Enrollment::factory()->create([
-            'id_user' => 1,
-            'id_course' => 2,
-        ]);
-        \App\Models\Enrollment::factory()->create([
-            'id_user' => 2,
-            'id_course' => 1,
-        ]);
-        \App\Models\Enrollment::factory()->create([
-            'id_user' => 2,
-            'id_course' => 2,
-        ]);
-        \App\Models\Enrollment::factory()->create([
-            'id_user' => 3,
-            'id_course' => 1,
-        ]);
-        \App\Models\Enrollment::factory()->create([
-            'id_user' => 4,
-            'id_course' => 1,
-        ]);
-
         //Generate Data Payment Status
-        $payment_status = ['Pending', 'Accepted', 'Rejected'];
+        $payment_status = ['Pending', 'Accepted'];
         foreach ($payment_status as $status) {
             \App\Models\PaymentStatus::factory()->create([
                 'status_name' => $status,

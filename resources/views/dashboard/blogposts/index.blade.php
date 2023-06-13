@@ -8,7 +8,7 @@
         {{ session('success') }}
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">X</button>
     </div>
-@endif
+    @endif
     <div class="container container-class" data-aos="fade-up"> 
         <div class="rounded p-5 shadow bg-white" data-aos="zoom-in">
             <h1 class="text-primary text-center">Blog Posts</h1>
@@ -29,7 +29,7 @@
                         <th scope="row">{{ $loop ->iteration  }}</th>
                         <td>{{ $blogpost->title}}</td>
                         <td>{{ $blogpost->user->name}}</td>
-                        <td>{{ $blogpost->summary }}</td>
+                        <td>{!! $blogpost->summary !!}</td>
                         <td>
                             <button class="btn btn-success"><a href="/dashboard/blogposts/{{ $blogpost->id }}"><span class="text-primary">show</span></a></button>
                             <button class="btn btn-warning"><a href="/dashboard/blogposts/{{ $blogpost->id }}/edit"><span class="text-primary">edit</span></a></button>
@@ -47,19 +47,6 @@
         </div>
     </div>
    
+
 </main>
 @endsection
-
-    <!-- Vendor JS files -->
-    <script src="{{ URL::asset('assets/vendor/bootstrap/js/bootstrap.bundle.js')}}"></script>
-    <script src="{{ URL::asset('assets/vendor/aos/aos.js')}}"></script>
-    <script src="{{ URL::asset('assets/vendor/php-email-form/validate.js')}}"></script>
-    <script src="{{ URL::asset('assets/vendor/swiper/swiper-bundle.min.js')}}"></script>
-    <script src="{{ URL::asset('assets/vendor/purecounter/purecounter.js')}}"></script>
-    <script src="{{ URL::asset('assets/vendor/isotope-layout/isotope.pkgd.min.js')}}"></script>
-    <script src="{{ URL::asset('assets/vendor/glightbox/js/glightbox.min.js')}}"></script>
-
-    <!-- File JS -->
-    <script src="{{ URL::asset('assets/js/main.js')}}"></script>
-</body>
-</html>

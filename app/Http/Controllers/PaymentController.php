@@ -12,6 +12,7 @@ class PaymentController extends Controller
     public function index(Course $course)
     {
         return view('payments.payment', [
+        'title' => 'Payment Confirmation',
         'course' => $course,
         'payments' => payment::all(),
         ]);

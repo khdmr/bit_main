@@ -10,7 +10,8 @@ class DashboardController extends Controller
     public function index(User $user)
     {
         return view('dashboard.dashboard', [
-            "user" => auth()->user(),
+            'title' => 'Home',
+            'orang' => auth()->user(),
         ]);
     }
 }

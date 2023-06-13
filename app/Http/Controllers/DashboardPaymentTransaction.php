@@ -15,6 +15,8 @@ class DashboardPaymentTransaction extends Controller
     public function index()
     {
         return view('dashboard.payment.index', [
+            'title' => 'Payment',
+            'orang' => auth()->user(),
             'payments' => PaymentTransaction::all()
         ]);
     }
@@ -25,6 +27,8 @@ class DashboardPaymentTransaction extends Controller
     public function create(PaymentTransaction $payment)
     {
         return view('dashboard.payment.create',[
+            'title' => 'Create Payment',
+            'orang' => auth()->user(),
             'payment' => $payment,
         ]);
     }
@@ -43,6 +47,8 @@ class DashboardPaymentTransaction extends Controller
     public function show(PaymentTransaction $payment)
     {
         return view('dashboard.payment.show', [
+            'title' => $payment->title,
+            'orang' => auth()->user(),
             'payment' => $payment
         ]);
     }
@@ -53,6 +59,8 @@ class DashboardPaymentTransaction extends Controller
     public function edit(PaymentTransaction $payment)
     {
         return view('dashboard.payment.edit', [
+            'title' => 'Edit Payment',
+            'orang' => auth()->user(),
             'payment' => $payment
         ]);
     }

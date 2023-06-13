@@ -1,72 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-  
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="{{ URL::asset('assets/img/Logo BIT.png')}}" type="image/icon type">
+@extends('layouts.navbar-login')
 
-    <title>Blog</title>
+@section('style')
+<link rel="stylesheet" href="{{ URL::asset('assets/css/style-blog-single.css')}}">
+@endsection
 
-    <!-- Vendor CSS Files -->
-    <link rel="stylesheet" href="{{ URL::asset('assets/vendor/bootstrap/css/bootstrap.min.css')}}">
-    <link rel="stylesheet" href="{{ URL::asset('assets/vendor/bootstrap-icons/bootstrap-icons.css')}}">
-    <link rel="stylesheet" href="{{ URL::asset('assets/vendor/aos/aos.css')}}">
-    <link rel="stylesheet" href="{{ URL::asset('assets/vendor/remixicon/remixicon.css')}}">
-    <link rel="stylesheet" href="{{ URL::asset('assets/vendor/swiper/swiper-bundle.min.css')}}">
-    <link rel="stylesheet" href="{{ URL::asset('assets/vendor/glightbox/css/glightbox.min.css')}}">
-    <link rel="stylesheet" href="{{ URL::asset('assets/vendor/themify-icons/themify-icons.css')}}">
-    <link rel="stylesheet" href="{{ URL::asset('assets/vendor/slick/slick.css')}}">
-    <link rel="stylesheet" href="{{ URL::asset('assets/vendor/slick/slick-theme.css')}}">
-
-
-    <!-- CSS Style -->
-    <link rel="stylesheet" href="{{ URL::asset('assets/css/style-blog-single.css')}}">
-
-    <!-- Font Family -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,600;1,200&display=swap"
-        rel="stylesheet">
-
-</head>
-
-<body>
-
-  <!-- ======= Header ======= -->
-  <header id="header" class="header fixed-top">
-    <!-- Navbar Navigation -->
-    <div id="navbar-container"
-        class="container-fluid container-xl d-flex align-items-center justify-content-between">
-        <a href="" class="logo d-flex align-items-center">
-            <img src="{{ URL::asset('assets/img/Logo BIT.png')}}" alt="">
-            <span>BIT</span>
-        </a>
-        <nav id="navbar" class="navbar">
-            <ul>
-              @auth
-              <li><a class="nav-link scrollto" href="/">Home</a></li>
-              <li class="nav-link scrollto active"><a href="/bootcamp"><span>Bootcamp</span></a></li>
-              <li class="nav-link scrollto"><a href="/dashboard"><span>Dashboard</span></a></li>
-              <li><a class="nav-link scrollto" href="/blog">Blog</a></li>
-              <li><form action="/logout" method="POST">
-                @csrf
-                <button type="submit">Log Out</button>
-              </form></li>
-              <li><a class="getstarted scrollto" href="#">Get Started</a></li>
-            @else
-              <li><a class="nav-link scrollto" href="/">Home</a></li>
-              <li class="nav-link scrollto active"><a href="/bootcamp"><span>Bootcamp</span></a></li>
-              <li><a class="nav-link scrollto" href="/blog">Blog</a></li>
-              <li><a class="" href="/login">Login</a></li>
-              <li><a class="getstarted scrollto" href="#">Get Started</a></li>
-              <!-- <i class="bi bi-list mobile-nav-toggle"></i> -->
-            @endauth
-            </ul>
-        </nav>
-    </div>
-</header>
+@section('container')
 <!-- End Header -->
 
   <main id="main">
@@ -92,11 +30,11 @@
               </div>
 
               <div class="entry-content">
-                  <p>{{ $blogpost->summary }}</p>
+                  <p>{!! $blogpost->summary !!}</p>
                   <img src="{{ URL::asset('assets/img/blog/blog.svg')}}" class="img-fluid" alt="">
                   <hr>
                 <p>
-                    {{ $blogpost->content }}
+                    {!! $blogpost->content !!}
                 </p>
               </div>
             </article><!-- End blog entry -->

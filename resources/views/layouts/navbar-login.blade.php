@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Navbar Login</title>
+    <title>{{ $title }}</title>
 
     <!-- Vendor CSS Files -->
     <link rel="stylesheet" href="{{ URL::asset('assets/vendor/bootstrap/css/bootstrap.min.css') }}">
@@ -19,8 +19,8 @@
 
 
     <!-- CSS Style -->
-    <link rel="stylesheet" href="{{ URL::asset('assets/css/style.css') }}">
-    <link rel="stylesheet" href="{{ URL::asset('style.css') }}">
+    @yield('style')
+    {{-- <link rel="stylesheet" href="{{ URL::asset('style.css') }}"> --}}
 
 </head>
 <body>
@@ -39,10 +39,28 @@
                     <li><a class="nav-link scrollto" href="/blog">Blog</a></li>
                     <li class="dropdown"><a class="profil scrollto" href=""><img src="{{ URL::asset('assets/img/profil.jpg') }}" alt=""></a>
                         <ul>
-                            {{-- <li><a href="">Profil</a></li> --}}
-                            {{-- <li><a href="">Pengaturan Akun</a></li> --}}
-                            {{-- <li><a href="">Sertifikat</a></li> --}}
+                            @auth
+                            <li>
+                                <a href="" style="pointer-events: none">{{ $user }}</a>
+                            </li>
+                            @if (auth()->user()->role_id == '1')
+                            <li>
+                                <a href="/dashboard">
+                                Dashboard
+                                </a>
+                            </li>
+                            @endif
+                            <li>
+                                <a href="" onclick="event.preventDefault(); document.getElementById('frm-logout').submit();">
+                                Logout
+                                </a>
+                            </li>    
+                            <form id="frm-logout" action="/logout" method="POST" style="display: none;">
+                                @csrf
+                            </form>
+                            @else
                             <li><a href="/login">Login</a></li>
+                            @endauth
                         </ul>
                     </li>
                     

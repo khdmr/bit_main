@@ -14,6 +14,7 @@ use App\Http\Controllers\DashboardModul;
 use App\Http\Controllers\DashboardPaymentTransaction;
 use App\Http\Controllers\DashboardUser;
 use App\Http\Controllers\PaymentController;
+use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Route;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
@@ -32,6 +33,32 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 //     return view('welcome');
 // });
 
+Route::middleware(['auth', 'isAdmin'])->group(function () {
+    //Dasboard
+    Route::get('/dashboard', [DashboardController::class, 'index']);
+
+    //Dashboard Blog Post
+    Route::resource('/dashboard/blogposts', DashboardBlogPost::class);
+
+    //Dashboard Konfirmasi Pembayaran
+    Route::resource('/dashboard/payment', DashboardPaymentTransaction::class);
+
+    //Dashboard Bootcamp Category
+    Route::resource('/dashboard/bootcampcategory', DashboardCategoryBootcamp::class);
+
+    //Dashboard Bootcamp
+    Route::resource('/dashboard/bootcamp', DashboardBootcamp::class);
+
+    //Dashboard Modul
+    Route::resource('/dashboard/modul', DashboardModul::class);
+
+    //Dashboard Material
+    Route::resource('/dashboard/material', DashboardMaterial::class);
+
+    //Dashboard User
+    Route::resource('/dashboard/user', DashboardUser::class);
+});
+
 //Route Landing Page
 Route::get('/', [HomeController::class, 'index']);
 
@@ -45,39 +72,14 @@ Route::get('/blog', [BlogPostController::class, 'index']);
 Route::get('/blog/{blogpost}', [BlogPostController::class, 'blog']);
 
 //Login
-// Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
-Route::get('/login', [LoginController::class, 'index'])->middleware('guest');
+Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate']);
-Route::post('/logout', [LoginController::class, 'logout']);
+Route::post('/logout', [LoginController::class, 'logout'])->middleware('auth');
 
 //Register
-Route::get('/register', [RegisterController::class, 'index']);
-Route::post('/register', [RegisterController::class, 'register']);
+Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
+Route::post('/register', [RegisterController::class, 'register'])->middleware('guest');
 
 //Pembayaran
-Route::get('/bootcamp/{course}/pembayaran', [PaymentController::class, 'index']);
-Route::post('/bootcamp/{course}/pembayaran', [PaymentController::class, 'save']);
-
-//Dasboard
-Route::get('/dashboard', [DashboardController::class, 'index']);
-
-//Dashboard Blog Post
-Route::resource('/dashboard/blogposts', DashboardBlogPost::class);
-
-//Dashboard Konfirmasi Pembayaran
-Route::resource('/dashboard/payment', DashboardPaymentTransaction::class);
-
-//Dashboard Bootcamp Category
-Route::resource('/dashboard/bootcampcategory', DashboardCategoryBootcamp::class);
-
-//Dashboard Bootcamp
-Route::resource('/dashboard/bootcamp', DashboardBootcamp::class);
-
-//Dashboard Modul
-Route::resource('/dashboard/modul', DashboardModul::class);
-
-//Dashboard Material
-Route::resource('/dashboard/material', DashboardMaterial::class);
-
-//Dashboard User
-Route::resource('/dashboard/user', DashboardUser::class);
+Route::get('/bootcamp/{course}/pembayaran', [PaymentController::class, 'index'])->middleware('auth');
+Route::post('/bootcamp/{course}/pembayaran', [PaymentController::class, 'save'])->middleware('auth');

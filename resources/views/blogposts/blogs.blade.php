@@ -1,69 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="public/assets/img/Logo BIT.png" type="image/icon type">
+@extends('layouts.navbar-login')
 
-    <title>Blog</title>
+@section('style')
+<link rel="stylesheet" href="{{ URL::asset('assets/css/style-blog.css') }}">
+@endsection
 
-    <!-- Vendor CSS Files -->
-    <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/vendor/bootstrap-icons/bootstrap-icons.css">
-    <link rel="stylesheet" href="assets/vendor/aos/aos.css">
-    <link rel="stylesheet" href="assets/vendor/remixicon/remixicon.css">
-    <link rel="stylesheet" href="assets/vendor/swiper/swiper-bundle.min.css">
-    <link rel="stylesheet" href="assets/vendor/glightbox/css/glightbox.min.css">
-    <link rel="stylesheet" href="assets/vendor/themify-icons/themify-icons.css">
-    <link rel="stylesheet" href="assets/vendor/slick/slick.css">
-    <link rel="stylesheet" href="assets/vendor/slick/slick-theme.css">
-
-
-    <!-- CSS Style -->
-    <link rel="stylesheet" href="assets/css/style-blog.css">
-
-    <!-- Font Family -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,600;1,200&display=swap"
-        rel="stylesheet">
-
-</head>
-<body>
-    <header id="header" class="header fixed-top">
-        <!-- Navbar Navigation -->
-        <div id="navbar-container"
-            class="container-fluid container-xl d-flex align-items-center justify-content-between">
-            <a href="" class="logo d-flex align-items-center">
-                <img src="assets/img/Logo BIT.png" alt="">
-                <span>BIT</span>
-            </a>
-            <nav id="navbar" class="navbar">
-                <ul>
-                  @auth
-                  <li><a class="nav-link scrollto" href="/">Home</a></li>
-                  <li class="nav-link scrollto"><a href="/bootcamp"><span>Bootcamp</span></a></li>
-                  <li class="nav-link scrollto"><a href="/dashboard"><span>Dashboard</span></a></li>
-                  <li><a class="nav-link scrollto active " href="#">Blog</a></li>
-                  <li><form action="/logout" method="POST">
-                    @csrf
-                    <button type="submit">Log Out</button>
-                  </form></li>
-                  <li><a class="getstarted scrollto" href="#">Get Started</a></li>
-                @else
-                  <li><a class="nav-link scrollto" href="/">Home</a></li>
-                  <li class="nav-link scrollto active"><a href="/bootcamp"><span>Bootcamp</span></a></li>
-                  <li><a class="nav-link scrollto" href="#">Blog</a></li>
-                  <li><a class="" href="/login">Login</a></li>
-                  <li><a class="getstarted scrollto" href="#">Get Started</a></li>
-                  <!-- <i class="bi bi-list mobile-nav-toggle"></i> -->
-                @endauth
-                </ul>
-            </nav>
-        </div>
-    </header>
-
+@section('container')
     <!-- Hero banner -->
     <section id="blog" class="section gradient-blog">
         <div class="row blog-hero">
@@ -98,7 +39,7 @@
                           
                           <div class="entry-content">
                             <p>
-                              {{ $singleblog->summary }}
+                              {!! $singleblog->summary !!}
                             </p>
                             <div class="read-more">
                               <a href="/blog/{{ $singleblog->id }}">Read More</a>
@@ -117,7 +58,7 @@
                         <article class="entry-recent">
                             <img src="assets/img/blog/title-{{ $i++ }}.svg" alt="" class="img-fluid">
                             <h3>{{ $recentblog->title }}</h3>
-                            <p>{{ $recentblog->summary }}</p>
+                            <p>{!! $recentblog->summary !!}</p>
                             <div class="read-more">
                                 <a href="/blog/{{ $recentblog->id }}">Read More</a>
                               </div>
@@ -230,7 +171,7 @@
           </div>
         </div>
     </footer>
-
+@endsection
     <!-- Vendor JS files -->
     <script src="assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
     <script src="assets/vendor/aos/aos.js"></script>

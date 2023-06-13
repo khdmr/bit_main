@@ -14,6 +14,8 @@ class DashboardBlogPost extends Controller
     public function index()
     {
         return view('dashboard.blogposts.index', [
+            'title' => 'Blog Posts',
+            'orang' => auth()->user(),
             'blogposts' => BlogPost::all('id', 'id_author', 'title', 'summary')
         ]);
     }
@@ -23,7 +25,10 @@ class DashboardBlogPost extends Controller
      */
     public function create()
     {
-        return view('dashboard.blogposts.create');
+        return view('dashboard.blogposts.create',[
+            'title' => 'Dashboard | Create Blog Post',
+            'orang' => auth()->user(),
+        ]);
     }
 
     /**
@@ -54,6 +59,8 @@ class DashboardBlogPost extends Controller
     public function show(BlogPost $blogpost)
     {
         return view('dashboard.blogposts.post', [
+            'title' => $blogpost->title,
+            'orang' => auth()->user(),
             'blogpost' => $blogpost
         ]);
     }
@@ -64,6 +71,8 @@ class DashboardBlogPost extends Controller
     public function edit(BlogPost $blogpost)
     {
         return view('dashboard.blogposts.edit', [
+            'title' => 'Edit Blog Post',
+            'orang' => auth()->user(),
             'blogpost' => $blogpost
         ]);
     }

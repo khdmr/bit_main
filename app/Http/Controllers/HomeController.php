@@ -10,9 +10,19 @@ class HomeController extends Controller
 {
     public function index()
     {
+        if (auth()->user()) {
+            return view('home', [
+                'user' => auth()->user()->name,
+                'title' => 'Home',
+                'course' => Course::first(),
+                'blogs' => BlogPost::all(),
+                'i' => 1,
+            ]);
+        }
         return view('home', [
-            'course' => Course::where('title', 'Analisis Data dan Pembelajaran Mesin')->get(),
-            'blogs' => BlogPost::where('id','>','10')->get(),
+            'title' => 'Home',
+            'course' => Course::first(),
+            'blogs' => BlogPost::all(),
             'i' => 1,
         ]);
     }

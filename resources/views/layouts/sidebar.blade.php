@@ -27,7 +27,7 @@
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
 
-    <title>Dashboard - Analytics | Sneat - Bootstrap 5 HTML Admin Template - Pro</title>
+    <title>Dashboard | {{ $title }}</title>
     
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="{{ URL::asset('assets/img/favicon/favicon.ico') }}" />
@@ -53,6 +53,16 @@
 
     <link rel="stylesheet" href="{{ URL::asset('assets2/vendor/libs/apex-charts/apex-charts.css') }}" />
 
+        {{-- Trix --}}
+        <link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/css/trix.css') }}">
+        <script type="text/javascript" src="{{ URL::asset('assets/js/trix.js') }}"></script>
+    
+        <style>
+            trix-toolbar [data-trix-button-group="file-tools"] {
+                display: none;
+            }
+        </style>
+        
     <!-- Page CSS -->
 
     <!-- Helpers -->
@@ -71,7 +81,7 @@
 
         <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
           <div class="app-brand demo">
-            <a href="index.html" class="app-brand-link">
+            <a href="/" class="app-brand-link">
               <span class="app-brand-logo demo">
               </span>
               <span class="app-brand-text demo menu-text fw-bolder ms-2">BIT</span>
@@ -97,7 +107,6 @@
             <li class="menu-item {{ Request::is('dashboard/bootcampcategory') ? 'active' : '' }}">
               <a
                 href="/dashboard/bootcampcategory"
-                target="_blank"
                 class="menu-link"
               >
                 <i class="menu-icon tf-icons bx bx-support"></i>
@@ -107,7 +116,6 @@
             <li class="menu-item {{ Request::is('dashboard/bootcamp') ? 'active' : '' }}">
               <a
                 href="/dashboard/bootcamp"
-                target="_blank"
                 class="menu-link"
               >
                 <i class="menu-icon tf-icons bx bx-support"></i>
@@ -117,7 +125,6 @@
             <li class="menu-item {{ Request::is('dashboard/modul') ? 'active' : '' }}">
               <a
                 href="/dashboard/modul"
-                target="_blank"
                 class="menu-link"
               >
                 <i class="menu-icon tf-icons bx bx-support"></i>
@@ -127,7 +134,6 @@
             <li class="menu-item {{ Request::is('dashboard/material') ? 'active' : '' }}" >
               <a
                 href="/dashboard/material"
-                target="_blank"
                 class="menu-link"
               >
                 <i class="menu-icon tf-icons bx bx-support"></i>
@@ -139,7 +145,6 @@
             <li class="menu-item {{ Request::is('dashboard/blogposts') ? 'active' : '' }}">
               <a
                 href="/dashboard/blogposts"
-                target="_blank"
                 class="menu-link"
               >
                 <i class="menu-icon tf-icons bx bx-support"></i>
@@ -151,7 +156,6 @@
             <li class="menu-item {{ Request::is('dashboard/user') ? 'active' : '' }} ">
               <a
                 href="/dashboard/user"
-                target="_blank"
                 class="menu-link"
               >
                 <i class="menu-icon tf-icons bx bx-support"></i>
@@ -163,22 +167,11 @@
             <li class="menu-item {{ Request::is('dashboard/payment') ? 'active' : '' }}">
               <a
                 href="/dashboard/payment"
-                target="_blank"
                 class="menu-link"
               >
                 <i class="menu-icon tf-icons bx bx-support"></i>
                 <div data-i18n="Support">Konfirmasi Pembayaran</div>
               </a>
-            </li>
-            {{-- <li class="menu-item {{ Request::is('dashboard/rekap') ? 'active' : '' }}">
-              <a
-                href="/dashboard/rekap"
-                target="_blank"
-                class="menu-link"
-              >
-                <i class="menu-icon tf-icons bx bx-support"></i>
-                <div data-i18n="Support">Rekap Pembayaran</div>
-              </a> --}}
             </li>
           </ul>
         </aside>
@@ -209,7 +202,7 @@
                 <li class="nav-item navbar-dropdown dropdown-user dropdown">
                   <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
                     <div class="avatar avatar-online">
-                      <img src="../assets/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle" />
+                      <img src="{{ URL::asset('assets/img/profil.jpg') }}" alt class="w-px-40 h-auto rounded-circle" />
                     </div>
                   </a>
                   <ul class="dropdown-menu dropdown-menu-end">
@@ -218,12 +211,12 @@
                         <div class="d-flex">
                           <div class="flex-shrink-0 me-3">
                             <div class="avatar avatar-online">
-                              <img src="../assets/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle" />
+                              <img src="{{ URL::asset('assets/img/profil.jpg') }}" alt class="w-px-40 h-auto rounded-circle" />
                             </div>
                           </div>
                           <div class="flex-grow-1">
-                            <span class="fw-semibold d-block">John Doe</span>
-                            <small class="text-muted">Admin</small>
+                            <span class="fw-semibold d-block">{{ $orang->name }}</span>
+                            <small class="text-muted">{{ $orang->role->role_name }}</small>
                           </div>
                         </div>
                       </a>
@@ -232,35 +225,14 @@
                       <div class="dropdown-divider"></div>
                     </li>
                     <li>
-                      <a class="dropdown-item" href="#">
-                        <i class="bx bx-user me-2"></i>
-                        <span class="align-middle">My Profile</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a class="dropdown-item" href="#">
-                        <i class="bx bx-cog me-2"></i>
-                        <span class="align-middle">Settings</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a class="dropdown-item" href="#">
-                        <span class="d-flex align-items-center align-middle">
-                          <i class="flex-shrink-0 bx bx-credit-card me-2"></i>
-                          <span class="flex-grow-1 align-middle">Billing</span>
-                          <span class="flex-shrink-0 badge badge-center rounded-pill bg-danger w-px-20 h-px-20">4</span>
-                        </span>
-                      </a>
-                    </li>
-                    <li>
-                      <div class="dropdown-divider"></div>
-                    </li>
-                    <li>
-                      <a class="dropdown-item" href="auth-login-basic.html">
+                      <a class="dropdown-item" href="/logout" onclick="event.preventDefault(); document.getElementById('frm-logout').submit();">
                         <i class="bx bx-power-off me-2"></i>
                         <span class="align-middle">Log Out</span>
                       </a>
                     </li>
+                    <form id="frm-logout" action="/logout" method="POST" style="display: none;">
+                      @csrf
+                  </form>
                   </ul>
                 </li>
                 <!--/ User -->

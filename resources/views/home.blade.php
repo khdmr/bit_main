@@ -1,5 +1,9 @@
 @extends('layouts.navbar-login')
     <!-- Hero/banner -->
+@section('style')
+<link rel="stylesheet" href="{{ URL::asset('assets/css/style.css') }}">
+@endsection
+
 @section('container')
     <section id="home" class="section gradient-banner">
         <div class="shapes-container">
@@ -72,8 +76,8 @@
 
                         </div>
                     </div>
-
-                    @foreach ($course as $course)
+          
+                    
                     <div class="row g-0">
                         <div class="col-lg-6">
                             <div class="content">
@@ -82,19 +86,16 @@
                                     <i class="ri-book-3-line"></i>
                                     <p class="m-3 font-weight-bold">{{ $course->modul()->count() }} Modul</p>
                                     <i class="bi bi-people-fill"></i>
-                                    <p class="m-3 font-weight-bold">0 Siswa</p>
+                                    <p class="m-3 font-weight-bold">{{ $course->user()->count() }} Siswa</p>
                                 </span>
 
                                 <p>
                                    {{ $course->summary  }}
                                 </p>
-                                <h5 class="font-weight-bold">Rp. 500.000</h5>
+                                <h5 class="font-weight-bold">Rp{{ $course->price }}</h5>
                                 <div class="text-lg-start mt-4 d-inline-flex">
-                                    <a href="/bootcamp/{{ $course->id }}" class="btn-lihat-modul">
-                                        <span>Lihat Modul</span>
 
-                                    </a>
-                                    <a href="#" class="btn-belajar-sekarang">
+                                    <a href="/bootcamp/{{ $course->id }}" class="btn-belajar-sekarang">
                                         <span>Belajar Sekarang</span>
                                         <i class="bi bi-arrow-right"></i>
                                     </a>
@@ -106,7 +107,7 @@
 
                         </div>
                     </div>
-                    @endforeach
+                    
 
                 </div>
             </div>

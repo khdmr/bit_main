@@ -1,78 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="{{ URL::asset('assets/img/Logo BIT.png')}}" type="image/icon type">
-
-    <title>Bootcamp</title>
-
-    <!-- Vendor CSS Files -->
-    <link rel="stylesheet" href="{{ URL::asset('assets/vendor/bootstrap/css/bootstrap.min.css')}}">
-    <link rel="stylesheet" href="{{ URL::asset('assets/vendor/bootstrap-icons/bootstrap-icons.css')}}">
-    <link rel="stylesheet" href="{{ URL::asset('assets/vendor/aos/aos.css')}}">
-    <link rel="stylesheet" href="{{ URL::asset('assets/vendor/remixicon/remixicon.css')}}">
-    <link rel="stylesheet" href="{{ URL::asset('assets/vendor/swiper/swiper-bundle.min.css')}}">
-    <link rel="stylesheet" href="{{ URL::asset('assets/vendor/glightbox/css/glightbox.min.css')}}">
-    <link rel="stylesheet" href="{{ URL::asset('assets/vendor/themify-icons/themify-icons.css')}}">
-    <link rel="stylesheet" href="{{ URL::asset('assets/vendor/slick/slick.css')}}">
-    <link rel="stylesheet" href="{{ URL::asset('assets/vendor/slick/slick-theme.css')}}">
-
-
-    <!-- CSS Style -->
-    <link rel="stylesheet" href="{{ URL::asset('assets/css/style-bootcamp.css')}}">
-
-    <!-- Font Family -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,600;1,200&display=swap"
-        rel="stylesheet">
-
-</head>
-<body>
-    <header id="header" class="header fixed-top">
-        <!-- Navbar Navigation -->
-        <div id="navbar-container"
-            class="container-fluid container-xl d-flex align-items-center justify-content-between">
-            <a href="" class="logo d-flex align-items-center">
-                <img src="{{ URL::asset('assets/img/Logo BIT.png')}}" alt="">
-                <span>BIT</span>
-            </a>
-            <nav id="navbar" class="navbar">
-                <ul>
-                  @auth
-                    <li><a class="nav-link scrollto" href="/">Home</a></li>
-                    <li class="nav-link scrollto active"><a href="#bootcamp"><span>Bootcamp</span></a></li>
-                    <li class="nav-link scrollto"><a href="/dashboard"><span>Dashboard</span></a></li>
-                    <li><a class="nav-link scrollto" href="/blog">Blog</a></li>
-                    <li><form action="/logout" method="POST">
-                      @csrf
-                      <button type="submit">Log Out</button>
-                    </form></li>
-                    <li><a class="getstarted scrollto" href="#">Get Started</a></li>
-                  @else
-                    <li><a class="nav-link scrollto" href="/">Home</a></li>
-                    <li class="nav-link scrollto active"><a href="#bootcamp"><span>Bootcamp</span></a></li>
-                    <li><a class="nav-link scrollto" href="/blog">Blog</a></li>
-                    <li><a class="" href="/login">Login</a></li>
-                    <li><a class="getstarted scrollto" href="#">Get Started</a></li>
-                    <!-- <i class="bi bi-list mobile-nav-toggle"></i> -->
-                  @endauth
-                </ul>
-            </nav>
-        </div>
-    </header>
-
+@extends('layouts.navbar-login')
     <!-- Hero banner -->
+
+@section('style')
+  <link rel="stylesheet" href="{{ URL::asset('assets/css/style-bootcamp.css')}}">
+@endsection
+
+@section('container')
     <section id="home" class="section gradient-bootcamp">
         <div class="row bootcamp-hero">
+          <div class="shapes-container">
+            <div class="shape" data-aos="fade-down-left"></div>
+            <div class="shape" data-aos="fade-down" data-aos-duration="1000" data-aos-delay="100"></div>
+            <div class="shape" data-aos="fade-up-right" data-aos-duration="1000" data-aos-delay="200"></div>
+            <div class="shape" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200"></div>
+            <div class="shape" data-aos="fade-down-left" data-aos-duration="1000" data-aos-delay="100"></div>
+            <div class="shape" data-aos="fade-down-left" data-aos-duration="1000" data-aos-delay="100"></div>
+            <div class="shape" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="300"></div>
+            <div class="shape" data-aos="fade-down-right" data-aos-duration="500" data-aos-delay="200"></div>
+            <div class="shape" data-aos="fade-down-right" data-aos-duration="500" data-aos-delay="100"></div>
+            <div class="shape" data-aos="zoom-out" data-aos-duration="2000" data-aos-delay="500"></div>
+            <div class="shape" data-aos="fade-up-right" data-aos-duration="500" data-aos-delay="200"></div>
+            <div class="shape" data-aos="fade-down-left" data-aos-duration="500" data-aos-delay="100"></div>
+            <div class="shape" data-aos="fade-up" data-aos-duration="500" data-aos-delay="0"></div>
+            <div class="shape" data-aos="fade-down" data-aos-duration="500" data-aos-delay="0"></div>
+            <div class="shape" data-aos="fade-up-right" data-aos-duration="500" data-aos-delay="100"></div>
+            <div class="shape" data-aos="fade-down-left" data-aos-duration="500" data-aos-delay="0"></div>
+        </div>
             <div class="col-lg-12 ">
                 <h1>
                     Program Bootcamp
                 </h1>
                 <p>
-                    PLatform belajar terbaik untuk kembangkan keahlian baru dan tingkatkan karier Anda.
+                    Platform belajar terbaik untuk kembangkan keahlian baru dan tingkatkan karier Anda.
                 </p>
             </div>
             
@@ -196,7 +155,7 @@
           </div>
         </div>
     </footer>
-
+@endsection
     <!-- Vendor JS files -->
     <script src="{{ URL::asset('assets/vendor/bootstrap/js/bootstrap.bundle.js')}}"></script>
     <script src="{{ URL::asset('assets/vendor/aos/aos.js')}}"></script>

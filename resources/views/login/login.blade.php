@@ -11,19 +11,6 @@
     <title>Login & Register Form</title>
   </head>
   <body>
-    {{-- @if (session()->has('success'))
-  <div class="alert alert-success alert-dismissible fade show" role="alert">
-    {{ session('success') }}
-    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-  </div>
-  @endif
-
-  @if (session()->has('loginError'))
-  <div class="alert alert-danger alert-dismissible fade show" role="alert">
-    {{ session('loginError') }}
-    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>
-  @endif --}}
     <div class="container">
       <div class="forms-container">
         <div class="signin-signup">
@@ -50,9 +37,20 @@
             @enderror
             <input type="submit" value="Login" class="btn solid" />
           </form>
+
           <form action="/register" method="POST" class="sign-up-form">
             @csrf
             <h2 class="title">Sign up here!</h2>
+            <div class="input-field">
+              <i class="fas fa-user"></i>
+              <input type="text" name="name" id="name" placeholder="name" class="@error('name') is-invalid @enderror" />
+            </div>
+            @error('name')
+            <div class="invalid-feedback">
+              {{ $message  }}
+            </div>  
+            @enderror
+            
             <div class="input-field">
               <i class="fas fa-user"></i>
               <input type="text" name="username" id="username" placeholder="Username" class="@error('username') is-invalid @enderror" />
